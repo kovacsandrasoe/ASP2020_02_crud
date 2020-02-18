@@ -12,9 +12,9 @@ namespace ASP_202002_CarCrud.Controllers
     {
         CarLogic logic;
 
-        public HomeController()
+        public HomeController(CarLogic logic)
         {
-            logic = new CarLogic();
+            this.logic = logic;
         }
 
         public IActionResult Index()
@@ -33,6 +33,8 @@ namespace ASP_202002_CarCrud.Controllers
         [HttpPost]
         public IActionResult Add(Car car)
         {
+            //guid == generate unique identifyer
+            car.Id = Guid.NewGuid().ToString();
             logic.Add(car);
             return RedirectToAction(nameof(Dashboard));
         }

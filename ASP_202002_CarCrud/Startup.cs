@@ -34,11 +34,10 @@ namespace ASP_202002_CarCrud
             });
 
             services.AddDbContext<CarContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CarCrud;Trusted_Connection=True;MultipleActiveResultSets=true"));
 
 
-            services.AddSingleton<CarLogic, CarLogic>();
+            services.AddTransient<CarLogic, CarLogic>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

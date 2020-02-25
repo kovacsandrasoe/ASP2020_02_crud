@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                Fénykép
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Model)
             </th>
             <th>
@@ -25,6 +28,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                <img src="@Url.Action("GetImage", "Home", new {id = item.Id })" height="100" />
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Model)
             </td>
             <td>
@@ -32,6 +38,7 @@
             </td>
             <td>
                 @Html.ActionLink("Törlés", "Delete", new { id = item.Id })
+                @Html.ActionLink("Szerkesztés", "Edit", new { id = item.Id })
             </td>
         </tr>
 }

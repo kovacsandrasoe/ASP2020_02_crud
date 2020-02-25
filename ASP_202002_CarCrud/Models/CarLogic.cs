@@ -32,5 +32,10 @@ namespace ASP_202002_CarCrud.Models
             repo.Cars.Remove(carToDelete);
             repo.SaveChanges();
         }
+
+        internal void Save()
+        {
+            repo.SaveChanges();
+        }
     }
 }

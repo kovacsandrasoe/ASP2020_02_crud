@@ -1,18 +1,21 @@
 ﻿@model ASP_202002_CarCrud.Models.Car
 
 @{
-    ViewData["Title"] = "Add";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>Autó hozzáadása</h2>
+<h2>Edit</h2>
 
+<h4>Car</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Add" enctype="multipart/form-data">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <input type="hidden" asp-for="Id" class="form-control" />
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Model" class="control-label"></label>
                 <input asp-for="Model" class="form-control" />
@@ -24,12 +27,15 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhotoForm" class="control-label"></label>
-                <input asp-for="PhotoForm" class="form-control" />
-                <span asp-validation-for="PhotoForm" class="text-danger"></span>
+                <input type="hidden" asp-for="ContentType" class="form-control" />
+                <span asp-validation-for="ContentType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Létrehozás" class="btn btn-default" />
+                <input type="hidden" asp-for="PhotoData" class="form-control" />
+                <span asp-validation-for="PhotoData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
     </div>
